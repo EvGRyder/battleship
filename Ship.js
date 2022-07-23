@@ -24,3 +24,5 @@ function createShip (size) {
         }
     }
 }
+
+module.exports = { createShip }
