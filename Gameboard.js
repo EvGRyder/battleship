@@ -13,7 +13,9 @@ const Gameboard = function (size) {
 
     gameboard.setShip = function (size, xcoord, ycoord) {
         let Ship = createShip(size)
-        board[xcoord][ycoord] = Ship
+        for (let i = 0; i < size; i++) {
+            board[ycoord][xcoord+i] = Ship
+        }
     }
 
     gameboard.board = board
@@ -24,3 +26,6 @@ const Gameboard = function (size) {
 }
 
 
+let Board1 = Gameboard(5)
+Board1.setShip(3, 1, 1)
+console.log(Board1);
