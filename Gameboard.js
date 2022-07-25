@@ -11,10 +11,17 @@ const Gameboard = function (size) {
         board.push(row)
     }
 
-    gameboard.setShip = function (size, xcoord, ycoord) {
+    gameboard.setShip = function (size, xcoord, ycoord, direction) {
         let Ship = createShip(size)
-        for (let i = 0; i < size; i++) {
-            board[ycoord][xcoord+i] = Ship
+        if (direction == "horizontal") {
+            for (let i = 0; i < size; i++) {
+                board[ycoord][xcoord+i] = Ship
+            }
+        }
+        if (direction == "vertical"){
+            for (let i = 0; i < size; i++) {
+                board[ycoord+i][xcoord] = Ship
+            }
         }
     }
 
@@ -27,5 +34,5 @@ const Gameboard = function (size) {
 
 
 let Board1 = Gameboard(5)
-Board1.setShip(3, 1, 1)
+Board1.setShip(3, 1, 1, "horizontal")
 console.log(Board1);
